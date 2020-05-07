@@ -11,7 +11,8 @@
 Layout/LineLength:
   Max: 120
 
-# Pending cops in 0.82:
+# Pending cops in 0.82 can be removed once enabled in bulk
+# see https://docs.rubocop.org/en/latest/versioning/:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 Lint/RaiseException:
