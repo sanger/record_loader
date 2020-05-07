@@ -10,3 +10,19 @@
 # See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
 Layout/LineLength:
   Max: 120
+
+# Pending cops in 0.82:
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
