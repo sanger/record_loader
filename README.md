@@ -14,11 +14,15 @@ gem 'record_loader'
 
 And then execute:
 
-    $ bundle
+```bash
+    bundle
+```
 
 Or install it yourself as:
 
-    $ gem install record_loader
+```bash
+    gem install record_loader
+```
 
 ## Usage
 
@@ -32,7 +36,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/record_loader.
+Bug reports and pull requests are welcome on GitHub at <https://github.com/sanger/record_loader>.
 
 ## License
 
