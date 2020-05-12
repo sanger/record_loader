@@ -16,6 +16,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://www.github.com/sanger/record_loader'
   spec.license       = 'MIT'
 
+  spec.required_ruby_version = '>= 2.5.0'
+
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
@@ -44,5 +46,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.82'
+  spec.add_development_dependency 'rubocop-rspec', '~> 1.39'
   spec.add_development_dependency 'yard', '~> 0.9'
 end

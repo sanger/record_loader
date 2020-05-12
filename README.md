@@ -1,8 +1,10 @@
 # RecordLoader
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/record_loader`. To experiment with that code, run `bin/console` for an interactive prompt.
+RecordLoader provides a simple and standardized way of populating databases from information described in a series of
+organized yaml files. It is intended to be used to generate a number of idempotent tasks, which can be run in both
+your production and development environments.
 
-TODO: Delete this and the text above, and describe your gem
+While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
 ## Installation
 

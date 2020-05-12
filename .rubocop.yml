@@ -1,6 +1,6 @@
-# The behavior of RuboCop can be controlled via the .rubocop.yml
+# The behaviour of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
-# certain cops (checks) and to alter their behavior if they accept
+# certain cops (checks) and to alter their behaviour if they accept
 # any parameters. The file can be placed either in your home
 # directory or in some project directory.
 #
@@ -8,8 +8,26 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+
+require: rubocop-rspec
+
 Layout/LineLength:
   Max: 120
+
+# Blocks are used to structure tests and are part of the rspec dsl.
+# The standard BlockLength limits are too stringent for this purpose.
+Metrics/BlockLength:
+  ExcludedMethods:
+    - describe
+    - context
+
+# Increase the acceptable nesting levels. While we don't want
+# 4 nested contexts, it appears that the cop is also counting
+# describe. So by the time we've described out class, and the method
+# we only have room for one context. Maybe this is the cops intent
+# but feels a little strict to me.
+RSpec/NestedGroups:
+  Max: 4
 
 # Pending cops in 0.82 can be removed once enabled in bulk
 # see https://docs.rubocop.org/en/latest/versioning/:
