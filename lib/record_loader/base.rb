@@ -32,7 +32,28 @@ module RecordLoader
         @config_folder = config_folder unless config_folder.nil?
         @config_folder
       end
+
+      # @overload  adapter(adapter)
+      #   Sets the {RecordLoader::Adapter adapter} to use for the record loader, see the {RecordLoader::Adapter adapter}
+      #   for further information.
+      #
+      #   @param [Object] adapter Set the adapter to use for the class
+      #
+      #   @return [Object] The configured adapter
+      #
+      # @overload  adapter
+      #   Returns the configured adapter
+      #
+      #   @return [Object] The configured adapter
+      #
+      def adapter(adapter = nil)
+        @adapter = adapter unless adapter.nil?
+        @adapter || superclass.adapter
+      end
     end
+
+    adapter RecordLoader::Adapter::Basic.new
+
     #
     # Create a new config loader from yaml files
     #
@@ -56,7 +77,7 @@ module RecordLoader
     #
     # @return [Void]
     def create!
-      transaction do
+      adapter.transaction do
         @config.each do |key, config|
           create_or_update!(key, config)
         end
@@ -64,6 +85,14 @@ module RecordLoader
     end
 
     private
+
+    #   Returns the configured adapter
+    #
+    #   @return [Object] The configured adapter
+    #
+    def adapter
+      self.class.adapter
+    end
 
     #
     # Returns the default route to the yaml files containing the records path
@@ -82,35 +111,7 @@ module RecordLoader
       BASE_CONFIG_PATH
     end
 
-    #
-    # Wraps the ActiveRecord::Base.transaction method.
-    # @see https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
-    # Provided to allow overiding in situations where ActiveRecord is not
-    # available.
-    #
-    # @return [Void]
-    #
-    def transaction(&block)
-      if defined?(ActiveRecord)
-        ActiveRecord::Base.transaction(&block)
-      else
-        # We can't see ActiveRecord. This is probably a case
-        # of someone trying to use RecordLoader without Rails
-        raise ConfigurationError, 'RecordLoader could not find ActiveRecord. '\
-                                  'If you are not using ActiveRecord you may need to configure the '\
-                                  'ApplicationRecordLoader class correctly.'
-      end
-    end
-
-    # Wraps Rails.logger method
-    # Provided to allow overiding in situations where ActiveRecord is not
-    # available. Needs to respond to the various log levels (eg. warn)
-    #
-    # @return [#debug&#info&#warn#&error&#fatal]
-    def logger
-      Rails.logger
-    end
-
+    # Returns an array of WIP flags
     def wip_list
       ENV.fetch('WIP', '').split(',')
     end
@@ -151,7 +152,7 @@ module RecordLoader
       @config = @files.each_with_object({}) do |file, store|
         latest_file = YAML.load_file(file)
         duplicate_keys = store.keys & latest_file.keys
-        Rails.logger.warn "Duplicate keys in #{@path}: #{duplicate_keys}" unless duplicate_keys.empty?
+        adapter.logger.warn "Duplicate keys in #{@path}: #{duplicate_keys}" unless duplicate_keys.empty?
         store.merge!(latest_file)
       end
     end

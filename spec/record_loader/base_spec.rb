@@ -17,10 +17,6 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
       def create_or_update_called
         @create_or_update_called || []
       end
-
-      def transaction
-        yield
-      end
     end
   end
 
@@ -32,6 +28,17 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
     it 'provides a DSL for configuring subclasses' do
       custom_subclass.config_folder 'folder_name'
       expect(custom_subclass.config_folder).to eq 'folder_name'
+    end
+  end
+
+  describe '::adapter' do
+    it 'provides a DSL for configuring framework adapters' do
+      custom_subclass.adapter RecordLoader::Adapter::Rails.new
+      expect(custom_subclass.adapter).to be_a RecordLoader::Adapter::Rails
+    end
+
+    it 'fallbacks to a default adaptor if one is not specified' do
+      expect(custom_subclass.adapter).to be_a RecordLoader::Adapter::Basic
     end
   end
 

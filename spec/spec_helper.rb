@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'pry'
 require 'record_loader'
 
 RSpec.configure do |config|

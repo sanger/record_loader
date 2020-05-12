@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'record_loader/version'
+require 'record_loader/adapter'
 require 'record_loader/base'
 require 'record_loader/record_file'
 
