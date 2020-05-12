@@ -10,6 +10,7 @@ module RecordLoader
     #
     class Basic
       attr_reader :logger
+
       #
       # Create a new {RecordLoader::Adapter::Basic}. Can pass in a pre-existing
       # logger is required.
