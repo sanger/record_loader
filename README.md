@@ -1,4 +1,10 @@
+
 # RecordLoader
+
+![Cops and Specs](https://github.com/sanger/record_loader/workflows/Cops%20and%20Specs/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2e3913c21e32b86511e4/maintainability)](https://codeclimate.com/github/sanger/record_loader/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2e3913c21e32b86511e4/test_coverage)](https://codeclimate.com/github/sanger/record_loader/test_coverage)
+[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/sanger/record_loader)
 
 RecordLoader provides a simple and standardized way of populating databases from information described in a series of
 organized yaml files. It is intended to be used to generate a number of idempotent tasks, which can be run in both
