@@ -16,16 +16,19 @@ RSpec.describe RecordLoader::Adapter::Basic, type: :model do
   end
 
   describe '#development?' do
-    before { allow(ENV).to receive(:fetch).with('RACK_ENV', 'unknown').and_return(env) }
     subject { adapter.development? }
 
+    before { allow(ENV).to receive(:fetch).with('RACK_ENV', 'unknown').and_return(env) }
+
     context 'when not development' do
-      let(:env) { 'not dev'}
+      let(:env) { 'not dev' }
+
       it { is_expected.to be false }
     end
 
     context 'when development' do
-      let(:env) { 'development'}
+      let(:env) { 'development' }
+
       it { is_expected.to be true }
     end
   end

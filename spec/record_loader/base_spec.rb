@@ -25,12 +25,12 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
   let(:wip_flags) { '' }
 
   describe '::config_folder' do
+    let(:expected_folder) { Pathname.pwd.join('config/default_records/folder_name') }
+
     it 'provides a DSL for configuring subclasses' do
       custom_subclass.config_folder 'folder_name'
       expect(custom_subclass.config_folder).to eq 'folder_name'
     end
-
-    let(:expected_folder) { Pathname.pwd.join('config/default_records/folder_name') }
 
     it 'changes the loading directory' do
       custom_subclass.config_folder 'folder_name'
