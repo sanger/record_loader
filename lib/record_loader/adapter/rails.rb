@@ -8,7 +8,7 @@ module RecordLoader
       # Wraps Rails.logger method
       # @return [#debug&#info&#warn#&error&#fatal]
       def logger
-        Rails.logger
+        ::Rails.logger
       end
 
       #
@@ -17,6 +17,15 @@ module RecordLoader
       # @return [Void]
       def transaction(&block)
         ActiveRecord::Base.transaction(&block)
+      end
+
+      #
+      # Returns whether we are running in a development environment
+      #
+      # @return [Boolean] True is in development
+      #
+      def development?
+        ::Rails.env.development?
       end
     end
   end

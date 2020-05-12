@@ -32,6 +32,16 @@ module RecordLoader
       def transaction
         yield
       end
+
+      #
+      # Returns whether we are running in a development environment
+      # Determined by looking at RACK_ENV
+      #
+      # @return [Boolean] True if in development
+      #
+      def development?
+        ENV.fetch('RACK_ENV', 'unknown').casecmp?('development')
+      end
     end
   end
 end

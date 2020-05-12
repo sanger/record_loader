@@ -29,6 +29,14 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
       custom_subclass.config_folder 'folder_name'
       expect(custom_subclass.config_folder).to eq 'folder_name'
     end
+
+    let(:expected_folder) { Pathname.pwd.join('config/default_records/folder_name') }
+
+    it 'changes the loading directory' do
+      custom_subclass.config_folder 'folder_name'
+      instance = custom_subclass.new
+      expect(instance.send(:default_path)).to eq(expected_folder)
+    end
   end
 
   describe '::adapter' do

@@ -48,4 +48,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.82'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.39'
   spec.add_development_dependency 'yard', '~> 0.9'
+  # Pin simplecov to ~> 0.17 until CodeClimate compatibility
+  # issues resolved:
+  # https://github.com/codeclimate/test-reporter/issues/413
+  spec.add_development_dependency 'simplecov', '~> 0.17'
 end

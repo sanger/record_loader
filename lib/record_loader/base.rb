@@ -63,7 +63,7 @@ module RecordLoader
     #   defaults to config/default_records/plate_purposes
     # @param dev [Boolean] Override the rails environment to generate (or not) data from dev.yml files.
     #
-    def initialize(files: nil, directory: default_path, dev: Rails.env.development?)
+    def initialize(files: nil, directory: default_path, dev: adapter.development?)
       @path = directory.is_a?(Pathname) ? directory : Pathname.new(directory)
       @dev = dev
       @files = @path.glob("*#{RecordFile::EXTENSION}")
@@ -122,7 +122,7 @@ module RecordLoader
     # @return [Pathname] The directory containing the yml files
     #
     def default_path
-      Pathname.pwd.join(*base_config_path, config_folder)
+      Pathname.pwd.join(*base_config_path, self.class.config_folder)
     end
 
     #
