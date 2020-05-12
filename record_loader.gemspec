@@ -51,5 +51,5 @@ Gem::Specification.new do |spec|
   # Pin simplecov to ~> 0.17 until CodeClimate compatibility
   # issues resolved:
   # https://github.com/codeclimate/test-reporter/issues/413
-  spec.add_development_dependency 'simplecov', '~> 0.17'
+  spec.add_development_dependency 'simplecov', '~> 0.17.0'
 end
