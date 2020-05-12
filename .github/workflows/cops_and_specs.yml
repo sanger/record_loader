@@ -29,5 +29,11 @@ jobs:
         ruby-version: 2.5
     - name: Install dependencies
       run: bundle install
-    - name: Run tests
-      run: bundle exec rake
+    - name: Run Rubocop
+      run: bundle exec rubocop
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v2.6.0
+      env:
+        CC_TEST_REPORTER_ID: 5c1f50b6c3beb11b20e0e1d40800ebd81a5e1724b626060e9b366f2942acc315
+      with:
+        coverageCommand: bundle exec rspec
