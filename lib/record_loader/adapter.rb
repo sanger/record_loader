@@ -22,7 +22,7 @@ module RecordLoader
   # It is possible to create custom adapters to use with your own frameworks. It is suggested that you inherit from
   # {RecordLoader::Adapter::Basic} to provide forward compatibility with future versions of RecordLoader.
   #
-  # Custom adapters should support two instance methods:
+  # Custom adapters should support three instance methods:
   #
   # - transaction(&block)
   # Wraps the {Record::Loader::Base.create!} and allows you to handle transactional rollbacks in the event that
@@ -30,6 +30,9 @@ module RecordLoader
   #
   # - logger
   # Should return a logger object which impliments: debug, info, warn, error, fatal methods
+  #
+  # - development?
+  # Returns true if we are running in development mode.
   #
   # @example my_adapter.rb
   #  class MyAdapter < RecordLoader::Adapter::Basic

@@ -6,7 +6,7 @@ module RecordLoader
   module Adapter
     #
     # A very basic {RecordLoader::Adapter} which provides limited logging
-    # functionality.
+    # functionality, environment is extracted from RACK_ENV
     #
     class Basic
       attr_reader :logger
