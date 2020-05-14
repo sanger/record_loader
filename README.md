@@ -12,6 +12,14 @@ your production and development environments.
 
 While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
+## Key features
+
+- Produce testable, reproducible data migrations across multiple environments
+- Organize data into multiple files to provide context
+- Add development environment specific data with .dev.yml files
+- Keep work-in-progress isolated with .wip.yml files
+- Rails generators to quickly create new record loaders
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -32,15 +40,32 @@ Or install it yourself as:
     gem install record_loader
 ```
 
-## Usage
+If you are using Rails, you do not need to make any further changes, and all necessary hooks will be installed when
+generating your first record loader.
 
-TODO: Write usage instructions here
+## Usage (Rails)
+
+RecordLoader provides a generator to automatically build a loader, specs and the yaml files necessary to use it.
+In addition, the first time you use it it will automatically install the necessary rake files and configuration.
+You can access this by running:
+
+```bash
+    bundle exec rails g record_loader
+```
+
+Which will return the documentation:
+
+{include:file:lib/generators/record_loader/USAGE}
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can
+also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the
+version number in `version.rb`, ensure the CHANGELOG.md is updated and that everything is committed.
+Then run `bundle exec rake release`, which will create a git tag for the version,  push git commits and tags, and push
+the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 

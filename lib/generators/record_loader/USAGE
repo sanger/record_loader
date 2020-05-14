@@ -1,0 +1,36 @@
+Description:
+    Adds a new RecordLoader and all necessary files.
+
+    --record-class
+    Typically a loader is named after the class it creates, but if you want to
+    override this, you can specify a different ActiveRecord class name with the
+    record-class option. This functionality is purely for convenience, and will
+    change the class names used in the record loader, and associated specs. If
+    your loader is more complicated, and will create records of multiple classes
+    then you can ignore this setting and make the relevant modifications to
+    lib/record_loader/xxx_loader.rb and
+    spec/lib/record_loader/xxx_loader_spec.rb manually.
+
+    --record-key
+    By default the generator creates a simple loader that checks for a record
+    based on the value of a particular attribute, and it it doesn't exists,
+    creates it using the attributes specified in the yaml file. You can
+    specify which attribute gets used by specifying record-key, by default it
+    uses name.
+
+Example:
+    rails generate record_loader MyThing
+
+    This will generate a RecordLoader named MyThingLoader, a rake task to
+    trigger it, specs and example yaml files.
+
+    On first usage this will create:
+        lib/record_loader/application_record_loader.rb
+        lib/tasks/record_loader.rake
+
+    It will also create:
+      config/record_loader/my_things/default_records.yml
+      lib/record_loader/my_thing_loader.rb
+      lib/record_loader/tasks/record_loader/my_thing.rake
+      spec/data/record_loader/my_things/two_entry_example.yml
+      spec/lib/record_loader/my_thing_loader_spec.rb

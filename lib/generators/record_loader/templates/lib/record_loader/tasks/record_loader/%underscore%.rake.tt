@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+namespace :record_loader do
+  desc 'Automatically generate <%= record_class %> through <%= loader_class_name %>'
+  task <%= underscore %>: :environment do
+    RecordLoader::<%= loader_class_name %>.new.create!
+  end
+end

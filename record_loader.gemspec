@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Easily manage seeding and updating data from simple yml files'
   spec.description   = 'Provides a simple interface for generating and maintaining database
-                          records across multiple environments in a simple and reproducible manner.'
+                        records across multiple environments in a simple and reproducible manner.'
   spec.homepage      = 'https://www.github.com/sanger/record_loader'
   spec.license       = 'MIT'
 
