@@ -16,7 +16,7 @@ module RecordLoader
     WIP_IDENTIFIER = '.wip'
 
     # Cretae a RecordFile wrapper for a given file
-    # @param filepath [Pathname] The path of the file to wrap
+    # @param record_file [Pathname] The path of the file to wrap
     def initialize(record_file)
       @record_file = record_file
     end

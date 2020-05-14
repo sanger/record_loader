@@ -2,7 +2,7 @@
 
 module RecordLoader
   module Adapter
-    # An adapter designed for use with Rails applications. Automatically wraps {Record::Loader::Base.create!} in an
+    # An adapter designed for use with Rails applications. Automatically wraps {RecordLoader::Base.create!} in an
     # active record transaction, and directs logging to the configure rails logger. Environment is extracted
     # from Rails.env
     class Rails

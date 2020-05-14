@@ -15,7 +15,7 @@ module RecordLoader
   # A simple general purpose adapter which provides no support for transactions and only basic logging.
   #
   # - {RecordLoader::Adapter::Rails}
-  # An adapter designed for use with Rails applications. Automatically wraps {Record::Loader::Base.create!} in an
+  # An adapter designed for use with Rails applications. Automatically wraps {RecordLoader::Base.create!} in an
   # active record transaction, and directs logging to the configure rails logger.
   #
   # = Custom Adapters
@@ -25,7 +25,7 @@ module RecordLoader
   # Custom adapters should support three instance methods:
   #
   # - transaction(&block)
-  # Wraps the {Record::Loader::Base.create!} and allows you to handle transactional rollbacks in the event that
+  # Wraps the {RecordLoader::Base.create!} and allows you to handle transactional rollbacks in the event that
   # something goes wrong. This method recieves a block and should be yielded to to generate the records.
   #
   # - logger
