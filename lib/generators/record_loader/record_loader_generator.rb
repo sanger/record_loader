@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
+# Rails generator to automatically build record loaders
+# @see lib/generators/record_loader/USAGE
 class RecordLoaderGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 
   class_option :record_class, type: :string, default: nil,
-               desc: 'The name of the ActiveRecord class which will be created. eg. User'
+                              desc: 'The name of the ActiveRecord class which will be created. eg. User'
   class_option :record_key, type: :string, default: 'name',
-               desc: 'The unique attribute by which record will be identified'
+                            desc: 'The unique attribute by which record will be identified'
 
   def create_directories
     directory '.', './'
@@ -18,8 +22,8 @@ class RecordLoaderGenerator < Rails::Generators::NamedBase
               skip: true
     # Copy across the record_loader.rake unless it already exists
     copy_file '../static_files/record_loader.rake',
-    'lib/tasks/record_loader.rake',
-    skip: true
+              'lib/tasks/record_loader.rake',
+              skip: true
   end
 
   private
