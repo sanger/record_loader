@@ -15,7 +15,7 @@ module RecordLoader
     #                  names new_feature.wip.yaml
     WIP_IDENTIFIER = '.wip'
 
-    # Cretae a RecordFile wrapper for a given file
+    # Create a RecordFile wrapper for a given file
     # @param record_file [Pathname] The path of the file to wrap
     def initialize(record_file)
       @record_file = record_file
@@ -28,10 +28,16 @@ module RecordLoader
                        .delete_suffix(DEV_IDENTIFIER)
     end
 
+    # Returns true if the file is development environment specific
+    # ie. ends in .dev.yml
+    # @return [Boolean] True if the file is a dev file
     def dev?
       without_extension.end_with?(DEV_IDENTIFIER)
     end
 
+    # Returns true if the file is flagged as WIP
+    # ie. ends in .wip.yml
+    # @return [Boolean] True if the file is a wip file
     def wip?
       without_extension.end_with?(WIP_IDENTIFIER)
     end

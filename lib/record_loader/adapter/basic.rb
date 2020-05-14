@@ -9,6 +9,7 @@ module RecordLoader
     # functionality, environment is extracted from RACK_ENV
     #
     class Basic
+      # @return [Logger] The configured logger instance
       attr_reader :logger
 
       #

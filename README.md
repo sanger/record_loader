@@ -57,6 +57,112 @@ Which will return the documentation:
 
 {include:file:lib/generators/record_loader/USAGE}
 
+### An example loader
+
+Suppose you want to create a loader to maintain a selection of product types. You'll first use the generator:
+
+```bash
+  $ bundle exec rails g record_loader
+       exist
+      create  config/record_loader/product_types/default_records.yml
+      create  lib/record_loader/product_type_loader.rb
+      create  lib/record_loader/tasks/record_loader/product_type.rake
+      create  spec/data/record_loader/product_types/two_entry_example.yml
+      create  spec/lib/record_loader/product_type_loader_spec.rb
+        skip  lib/record_loader/application_record_loader.rb
+   identical  lib/tasks/record_loader.rake
+```
+
+This will create several files:
+
+#### `lib/tasks/record_loader.rake`
+
+Adds the record_loader:all rake task which can be used to trigger all record loaders.
+
+#### `lib/record_loader/application_record_loader.rb`
+
+Application specific base class for customization.
+
+#### `config/record_loader/product_types/default_records.yml`
+
+Example yaml file to begin populating with your record information. Record Loaders will load all yaml files from within
+this directory, so it is possible to separate your records into multiple different files for better organization.
+In addition yaml files ending in `.dev.yml` and `.wip.yml` exhibit special behaviour.
+See [dev and wip files](#dev-and-wip).
+
+#### `lib/record_loader/product_type_loader.rb`
+
+The actual loader. It will look something like this:
+
+```ruby
+# frozen_string_literal: true
+# This file was automatically generated via `rails g record_loader`
+
+# RecordLoader handles automatic population and updating of database records
+# across different environments
+# @see https://rubydoc.info/github/sanger/record_loader/
+module RecordLoader
+  # Creates the specified plate types if they are not present
+  class ProductTypeLoader < ApplicationRecordLoader
+    config_folder 'product_types'
+
+    def create_or_update!(name, options)
+      ProductType.create_with(options).find_or_create_by!(name: name)
+    end
+  end
+end
+```
+
+The `config_folder` specifies which directory under `config/record_loader` will be used to source the yaml files.
+The method `create_or_update!` will create the actual records, and should be idempotent (ie. calling it multiple times will
+have the same effect as calling it once). `create_or_update!` will be called once for each entry in the yaml files,
+with the first argument being the key, and the second argument being the value, usually a hash of options.
+
+#### `lib/record_loader/tasks/record_loader/product_type.rake`
+
+This contains the `record_loader:product_type` which will trigger the record loader, and also ensures that
+`record_loader:product_type` will get invoked on calling `record_loader:all`.
+
+#### `spec/data/record_loader/product_types/two_entry_example.yml`
+
+A basic configuration for testing the loader. Tests use a separate directory to avoid coupling your specs to the data.
+
+#### `spec/lib/record_loader/product_type_loader_spec.rb`
+
+A basic rspec spec file for testing your loader. By default this just confirms that your loader creates the
+expected number of records, and that it is idempotent.
+
+## Dev and Wip files
+
+Each loader can have one or more yaml files contained within its config directory. Most files will be aggregated
+together and only serve to provide a means of organization. However it is possible to add extra behaviour:
+
+`.dev.yml` files will only be loaded in development environments. This is useful for seeding data for quick testing, but
+which will not be needed in production environments. This may include test user accounts, dummy projects or quick
+start data.
+
+`.wip.yml` files will only be loaded if explicitly enabled via a WIP environmental variable. For example the file
+`my_feature.wip.yml` will run if the WIP env is set to `my_feature`. Multiple WIP flags can be set at the same time by
+providing a comma separated list. eg. `WIP=my_feature,other_feature`
+
+If you have an existing feature flag system you can use this instead by adding a `wip_list` method to
+`RecordLoader::ApplicationRecordLoader` which returns an array of enabled feature names. For example:
+
+```ruby
+  def wip_list
+    FeatureFlags.active.pluck(:name)
+  end
+```
+
+## Non Rails Environments
+
+In non-rails environments you can use the {RecordLoader::Adapter::Basic} adapter to avoid Rails specific functionality.
+This is the default adapter for {RecordLoader::Base}, although it is still recommended that you create an application
+specific class that inherits from this to allow for customization. Your custom record loaders can then inherit from this
+class instead.
+
+See {RecordLoader::Adapter} for information about custom adapters.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can

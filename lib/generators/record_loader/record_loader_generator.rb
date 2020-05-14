@@ -10,6 +10,7 @@ class RecordLoaderGenerator < Rails::Generators::NamedBase
   class_option :record_key, type: :string, default: 'name',
                             desc: 'The unique attribute by which record will be identified'
 
+  # Builds all templates in the templates directory
   def create_directories
     directory '.', './'
   end
