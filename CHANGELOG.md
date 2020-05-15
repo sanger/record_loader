@@ -5,6 +5,8 @@ Unreleased section to make new releases easy.
 
 ## [Unreleased]
 
+- [Fixed] Preflight task on `rake release` now run prior to release.
+
 ## [0.1.0]
 
 Initial release

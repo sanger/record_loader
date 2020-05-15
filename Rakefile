@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+# We add preflight to the release task pre-requisites before loading in the
+# bundler/gem_tasks to ensure that it runs first. This is becuase 'release' is
+# actually composed entirely of pre-requisites and so would otherwise end up
+# running the pre-flight tasks AFTER everything else
+task release: :preflight
+
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
@@ -8,8 +14,6 @@ RSpec::Core::RakeTask.new(:spec)
 RuboCop::RakeTask.new
 
 task default: %i[rubocop spec]
-
-task release: :preflight
 
 desc 'Runs the preflight checklist before building a release'
 task :preflight do
