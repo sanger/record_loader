@@ -5,6 +5,8 @@ Unreleased section to make new releases easy.
 
 ## [Unreleased]
 
+## [0.1.1]
+
 - [Fixed] Preflight task on `rake release` now run prior to release.
 - [Fixed] Generators place config files in correct directory
 - [Documentation] Improved documentation regarding dependencies
