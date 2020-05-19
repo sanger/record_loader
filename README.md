@@ -154,6 +154,39 @@ If you have an existing feature flag system you can use this instead by adding a
   end
 ```
 
+## RecordLoader Dependencies
+
+Sometimes one loader will be dependent on the output of another. If this is the case, you can simply configure
+its rake task to use the other as a pre-requisite.
+
+For example
+
+```ruby
+namespace :record_loader do
+  desc 'Automatically generate Dependent through DependentLoader'
+  task dependent: [:environment, :prerequisite] do
+    RecordLoader::DependentLoader.new.create!
+  end
+end
+```
+
+## Triggering on deployment
+
+It can be useful to set `rake record_loader:all` to run automatically on deployment.
+It is recommend you trigger this after migrations have run.
+
+### Within Sanger PSD
+
+**This section is relevant to developers within the Sanger only. Other users of the Gem should hook into their own deployment systems as they see fit.**
+
+In Production Software Development at the Sanger we have the Ansible deployment project configured to run
+`rake application:post_deploy` after migrations for selected applications. If you wish to take advantage of this
+uncomment the appropriate line in `lib/tasks/record_loader.rake`. You should also ensure that your application has
+the post_deploy tasks enabled by setting the post_deploy to true for your application.
+
+Currently this behaviour is configured as part of the 'rails' role, and will need to be set-up independently for
+any non-Rails ruby applications.
+
 ## Non Rails Environments
 
 In non-rails environments you can use the {RecordLoader::Adapter::Basic} adapter to avoid Rails specific functionality.

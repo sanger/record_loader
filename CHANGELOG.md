@@ -7,6 +7,8 @@ Unreleased section to make new releases easy.
 
 - [Fixed] Preflight task on `rake release` now run prior to release.
 - [Fixed] Generators place config files in correct directory
+- [Documentation] Improved documentation regarding dependencies
+- [Documentation] Improved documentation regarding deployment
 
 ## [0.1.0]
 
