@@ -5,6 +5,8 @@ Unreleased section to make new releases easy.
 
 ## [Unreleased]
 
+- [Fixed] Default yaml files correctly templated
+
 ## [0.1.1]
 
 - [Fixed] Preflight task on `rake release` now run prior to release.
