@@ -5,6 +5,8 @@ Unreleased section to make new releases easy.
 
 ## [Unreleased]
 
+- [Added] `RecordLoader.export_attributes` for easy generation of yaml from
+           existing data
 - [Fixed] Default yaml files correctly templated
 
 ## [0.1.1]
