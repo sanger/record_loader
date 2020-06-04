@@ -65,9 +65,10 @@ module RecordLoader
     #
     def initialize(files: nil, directory: default_path, dev: adapter.development?)
       @path = directory.is_a?(Pathname) ? directory : Pathname.new(directory)
-      @dev = dev
+
+      list = Filter.create(files: files, dev: dev, wip_list: wip_list)
       @files = @path.glob("*#{RecordFile::EXTENSION}")
-                    .select { |child| load_file?(files, RecordFile.new(child)) }
+                    .select { |child| list.include?(RecordFile.new(child)) }
       load_config
     end
 
@@ -123,26 +124,6 @@ module RecordLoader
     #
     def default_path
       Pathname.pwd.join(*base_config_path, self.class.config_folder)
-    end
-
-    #
-    # Indicates that a file should be loaded
-    #
-    # @param [Array] list provides an array of files (minus extenstions) to load
-    # @param [Pathname] file The file to check
-    #
-    # @return [Boolean] returns true if the file should be loaded
-    #
-    def load_file?(list, file)
-      if list.nil?
-        return @dev if file.dev?
-        return wip_list.include?(file.basename) if file.wip?
-
-        true
-      else
-        # If we've provided a list, that's all that matters
-        list.include?(file.basename)
-      end
     end
 
     #

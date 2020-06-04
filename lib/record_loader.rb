@@ -2,6 +2,7 @@
 
 require 'record_loader/version'
 require 'record_loader/adapter'
+require 'record_loader/filter'
 require 'record_loader/base'
 require 'record_loader/record_file'
 
@@ -21,7 +22,7 @@ module RecordLoader
   # @retuirn [String] Yaml listing the existing records
   def self.export_attributes(model_class, key)
     model_class.all.each_with_object({}) do |record, store|
-      store[record[key]] = record.attributes.except('id','updated_at','created_at', key)
+      store[record[key]] = record.attributes.except('id', 'updated_at', 'created_at', key)
     end.to_yaml
   end
 end
