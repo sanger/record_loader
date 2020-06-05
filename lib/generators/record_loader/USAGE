@@ -32,5 +32,5 @@ Example:
       config/record_loader/my_things/default_records.yml
       lib/record_loader/my_thing_loader.rb
       lib/record_loader/tasks/record_loader/my_thing.rake
-      spec/data/record_loader/my_things/two_entry_example.yml
+      spec/data/record_loader/my_things/my_things_basic.yml
       spec/lib/record_loader/my_thing_loader_spec.rb

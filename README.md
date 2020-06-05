@@ -62,12 +62,12 @@ Which will return the documentation:
 Suppose you want to create a loader to maintain a selection of product types. You'll first use the generator:
 
 ```bash
-  $ bundle exec rails g record_loader
+  $ bundle exec rails g record_loader product_type
        exist
       create  config/record_loader/product_types/default_records.yml
       create  lib/record_loader/product_type_loader.rb
       create  lib/record_loader/tasks/record_loader/product_type.rake
-      create  spec/data/record_loader/product_types/two_entry_example.yml
+      create  spec/data/record_loader/product_types/product_types_basic.yml
       create  spec/lib/record_loader/product_type_loader_spec.rb
         skip  lib/record_loader/application_record_loader.rb
    identical  lib/tasks/record_loader.rake
@@ -123,7 +123,7 @@ with the first argument being the key, and the second argument being the value, 
 This contains the `record_loader:product_type` which will trigger the record loader, and also ensures that
 `record_loader:product_type` will get invoked on calling `record_loader:all`.
 
-#### `spec/data/record_loader/product_types/two_entry_example.yml`
+#### `spec/data/record_loader/product_types/product_types_basic.yml`
 
 A basic configuration for testing the loader. Tests use a separate directory to avoid coupling your specs to the data.
 

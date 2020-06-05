@@ -1,5 +1,5 @@
 ---
 # This file was automatically generated via `rails g record_loader`
 # You should modify it to match your particular model.
-Unique attribute: {}
-Unique attribute 2: {}
+Unique <%= record_key %>: {}
+Unique <%= record_key %> 2: {}
