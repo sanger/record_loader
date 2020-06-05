@@ -157,14 +157,15 @@ If you have an existing feature flag system you can use this instead by adding a
 ## RecordLoader Dependencies
 
 Sometimes one loader will be dependent on the output of another. If this is the case, you can simply configure
-its rake task to use the other as a pre-requisite.
+its rake task to use the other as a pre-requisite. Rake's dependency handling is smart enough to ensure each
+task only gets run once.
 
 For example
 
 ```ruby
 namespace :record_loader do
   desc 'Automatically generate Dependent through DependentLoader'
-  task dependent: [:environment, :prerequisite] do
+  task dependent: [:environment, 'record_loader:prerequisite'] do
     RecordLoader::DependentLoader.new.create!
   end
 end
