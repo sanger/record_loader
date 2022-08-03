@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'filter/file_list'
-require_relative 'filter/file_list'
+require_relative 'filter/standard'
 
 module RecordLoader
   #

@@ -8,6 +8,7 @@ Unreleased section to make new releases easy.
 - [Added] `RecordLoader.export_attributes` for easy generation of yaml from
            existing data
 - [Added] Improved feedback if exceptions raised during record creation
+- [Added] Improved templated yml files to use attributes from table
 - [Changed] Update name of yaml files generated as part of tests.
             No changes are required to existing loaders.
 - [Fixed] Default yaml files correctly templated

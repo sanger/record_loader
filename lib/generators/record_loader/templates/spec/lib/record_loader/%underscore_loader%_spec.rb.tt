@@ -28,6 +28,12 @@ RSpec.describe RecordLoader::<%= loader_class_name %>, type: :model, loader: tru
       expect { a_new_record_loader }.not_to change(<%= record_class %>, :count)
     end
 
-    it 'sets attributes on the created records'
+    it 'sets attributes on the created records' do
+      record_loader.create!
+      expect(<%= record_class %>.all).to include(
+        have_attributes(<%= attributes_values(0) %>),
+        have_attributes(<%= attributes_values(1) %>)
+      )
+    end
   end
 end

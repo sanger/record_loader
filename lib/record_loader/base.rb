@@ -80,11 +80,9 @@ module RecordLoader
     def create!
       adapter.transaction do
         @config.each do |key, config|
-          begin
-            create_or_update!(key, config)
-          rescue StandardError => e
-            raise StandardError, "Failed to create #{key} due to: #{e.message}"
-          end
+          create_or_update!(key, config)
+        rescue StandardError => e
+          raise StandardError, "Failed to create #{key} due to: #{e.message}"
         end
       end
     end
