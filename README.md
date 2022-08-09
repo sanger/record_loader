@@ -43,9 +43,18 @@ Or install it yourself as:
 If you are using Rails, you do not need to make any further changes, and all necessary hooks will be installed when
 generating your first record loader.
 
-## Usage (Rails)
+## How to run
+
+To execute all record loaders created for your project you can use the command:
+
+```bash
+    rake record_loader:all
+```
+
+## How to generate new records loaders for your project (Rails)
 
 RecordLoader provides a generator to automatically build a loader, specs and the yaml files necessary to use it.
+You may need to manually modify the contents of those files to adapt to the data type you are defining.
 In addition, the first time you use it it will automatically install the necessary rake files and configuration.
 You can access this by running:
 
