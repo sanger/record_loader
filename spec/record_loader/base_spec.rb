@@ -106,4 +106,23 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
       end
     end
   end
+
+  context 'when create_or_update! raises an exception' do
+    let(:dev) { true }
+    let(:selected_files) { ['001_example'] }
+    let(:custom_subclass) do
+      # RecordLoader::Base is not used directly, but as a subclass
+      Class.new(described_class) do
+        def create_or_update!(*_)
+          raise StandardError, 'Not good'
+        end
+      end
+    end
+
+    describe '#create' do
+      it 'is expected to raise a more informative error message' do
+        expect { record_loader.create! }.to raise_error(StandardError, 'Failed to create Example c due to: Not good')
+      end
+    end
+  end
 end

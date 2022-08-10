@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+require 'record_loader/attribute'
+
 # Rails generator to automatically build record loaders
 # @see lib/generators/record_loader/USAGE
 class RecordLoaderGenerator < Rails::Generators::NamedBase
+  IGNORED_COLUMNS = %w[created_at updated_at].freeze
+
   source_root File.expand_path('templates', __dir__)
 
   class_option :record_class, type: :string, default: nil,
@@ -27,7 +31,34 @@ class RecordLoaderGenerator < Rails::Generators::NamedBase
               skip: true
   end
 
+  def build_example_hash(size = 2)
+    (1..size).each_with_object({}) do |iteration, store|
+      store["Unique #{record_key} #{iteration}"] = loader_attributes.each_with_object({}) do |attribute, config|
+        config[attribute.name] = attribute.value(iteration)
+      end
+    end
+  end
+
   private
+
+  def klass
+    @klass ||= record_class.constantize
+  end
+
+  def loader_attributes
+    klass.content_columns
+         .reject { |column| IGNORED_COLUMNS.include?(column.name) }
+         .map { |column| RecordLoader::Attribute.new(column.name, column.type, defaults[column.name]) }
+  end
+
+  # The defaults returned by content_columns are not coerced
+  def defaults
+    klass.column_defaults
+  end
+
+  def attributes_values(index)
+    loader_attributes.map { |a| "#{a.name}: #{a.ruby_value(index)}" }.join(', ')
+  end
 
   def loader_class_name
     "#{name.camelcase}Loader"
