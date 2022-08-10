@@ -50,7 +50,7 @@ module RecordLoader
 
     private
 
-    # If this gets much more complicated then consider separarte classes for
+    # If this gets much more complicated then consider separate classes for
     # handling the type specific behaviour. Avoiding for now as I'm not sure it
     # adds much
     def value_for_type(index) # rubocop:disable Metrics/CyclomaticComplexity
