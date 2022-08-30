@@ -3,7 +3,7 @@
 Keeps track of notable changes. Please remember to add new behaviours to the
 Unreleased section to make new releases easy.
 
-## [Unreleased]
+## [0.2.0]
 
 - [Added] `RecordLoader.export_attributes` for easy generation of yaml from
            existing data
