@@ -53,7 +53,7 @@ module RecordLoader
     # If this gets much more complicated then consider separate classes for
     # handling the type specific behaviour. Avoiding for now as I'm not sure it
     # adds much
-    def value_for_type(index) # rubocop:disable Metrics/CyclomaticComplexity
+    def value_for_type(index)
       case type
       when :integer then index
       when :datetime, :timestamp then BASE_TIME + index

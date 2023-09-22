@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://www.github.com/sanger/record_loader'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 3.2.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -41,15 +41,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Development dependencies
-  spec.add_development_dependency 'bundler', '~> 2.1'
-  spec.add_development_dependency 'pry', '~> 0.13'
-  spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '~> 0.82'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.39'
+  spec.add_development_dependency 'bundler', '~> 2.3'
+  spec.add_development_dependency 'pry', '~> 0.14'
+  spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'rspec', '~> 3.12'
+  spec.add_development_dependency 'rubocop', '~> 1.56'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.24'
   spec.add_development_dependency 'yard', '~> 0.9'
   # Pin simplecov to ~> 0.17 until CodeClimate compatibility
   # issues resolved:
   # https://github.com/codeclimate/test-reporter/issues/413
-  spec.add_development_dependency 'simplecov', '~> 0.17.0'
+  spec.add_development_dependency 'simplecov', '~> 0.22'
 end

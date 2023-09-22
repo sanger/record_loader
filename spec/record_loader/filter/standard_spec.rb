@@ -3,7 +3,7 @@
 require 'record_loader/filter/standard'
 
 RSpec.describe RecordLoader::Filter::Standard, type: :model do
-  subject(:filter) { described_class.new(dev: dev, wip_list: wip_list) }
+  subject(:filter) { described_class.new(dev:, wip_list:) }
 
   def record_file(name)
     RecordLoader::RecordFile.new(Pathname.new(name))
