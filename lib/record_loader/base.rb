@@ -66,7 +66,7 @@ module RecordLoader
     def initialize(files: nil, directory: default_path, dev: adapter.development?)
       @path = directory.is_a?(Pathname) ? directory : Pathname.new(directory)
 
-      list = Filter.create(files:, dev:, wip_list:)
+      list = Filter.create(files: files, dev: dev, wip_list: wip_list)
       @files = @path.glob("*#{RecordFile::EXTENSION}")
                     .select { |child| list.include?(RecordFile.new(child)) }
       load_config
@@ -133,7 +133,7 @@ module RecordLoader
     #
     def load_config
       @config = @files.each_with_object({}) do |file, store|
-        latest_file = YAML.load_file(file, aliases: true)
+        latest_file = YAML.load_file(file)
         duplicate_keys = store.keys & latest_file.keys
         adapter.logger.warn "Duplicate keys in #{@path}: #{duplicate_keys}" unless duplicate_keys.empty?
         store.merge!(latest_file)

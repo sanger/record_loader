@@ -39,7 +39,7 @@ module RecordLoader
     # @return [RecordLoader::Filter::Standard, RecordLoader::Filter::FileList] An appropriate filter
     def self.create(files: nil, dev: false, wip_list: [])
       if files.nil?
-        RecordLoader::Filter::Standard.new(dev:, wip_list:)
+        RecordLoader::Filter::Standard.new(dev: dev, wip_list: wip_list)
       else
         RecordLoader::Filter::FileList.new(files)
       end

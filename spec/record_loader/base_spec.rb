@@ -20,7 +20,7 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
     end
   end
 
-  let(:options) { { directory: test_directory, dev:, files: selected_files } }
+  let(:options) { { directory: test_directory, dev: dev, files: selected_files } }
   let(:test_directory) { "#{Pathname.pwd}/spec/data/base" }
   let(:wip_flags) { '' }
 
