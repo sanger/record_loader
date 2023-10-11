@@ -4,7 +4,7 @@ require 'record_loader/filter/file_list'
 
 RSpec.describe RecordLoader::Filter, type: :model do
   describe '::create' do
-    subject { described_class.create(arguments) }
+    subject { described_class.create(**arguments) }
 
     context 'with files' do
       let(:arguments) { { files: ['test'] } }

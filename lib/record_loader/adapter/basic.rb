@@ -19,7 +19,7 @@ module RecordLoader
       #
       # @param [#debug&#info&#warn#&error&#fatal] logger Optional logger object. Creates a new ruby Logger by default.
       #
-      def initialize(logger: Logger.new(STDOUT))
+      def initialize(logger: Logger.new($stdout))
         @logger = logger
       end
 

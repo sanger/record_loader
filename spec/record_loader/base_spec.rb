@@ -3,7 +3,7 @@
 RSpec.describe RecordLoader::Base, type: :model, loader: true do
   subject(:record_loader) do
     allow(ENV).to receive(:fetch).with('WIP', '').and_return(wip_flags)
-    custom_subclass.new(options)
+    custom_subclass.new(**options)
   end
 
   let(:custom_subclass) do
@@ -21,7 +21,7 @@ RSpec.describe RecordLoader::Base, type: :model, loader: true do
   end
 
   let(:options) { { directory: test_directory, dev: dev, files: selected_files } }
-  let(:test_directory) { Pathname.pwd + 'spec/data/base' }
+  let(:test_directory) { "#{Pathname.pwd}/spec/data/base" }
   let(:wip_flags) { '' }
 
   describe '::config_folder' do
