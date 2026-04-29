@@ -17,13 +17,6 @@ While written with ActiveRecord/Rails in mind, it is possible to use RecordLoade
   * [How to run](README.md#how-to-run)
   * [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
     * [An example loader](README.md#an-example-loader)
-      * [`lib/tasks/record_loader.rake`](README.md#libtasksrecord_loader.rake)
-      * [`lib/record_loader/application_record_loader.rb`](README.md#librecord_loaderapplication_record_loader.rb)
-      * [`config/record_loader/product_types/default_records.yml`](README.md#configrecord_loaderproduct_typesdefault_records.yml)
-      * [`lib/record_loader/product_type_loader.rb`](README.md#librecord_loaderproduct_type_loader.rb)
-      * [`lib/record_loader/tasks/record_loader/product_type.rake`](README.md#librecord_loadertasksrecord_loaderproduct_type.rake)
-      * [`spec/data/record_loader/product_types/product_types_basic.yml`](README.md#specdatarecord_loaderproduct_typesproduct_types_basic.yml)
-      * [`spec/lib/record_loader/product_type_loader_spec.rb`](README.md#speclibrecord_loaderproduct_type_loader_spec.rb)
   * [Dev and Wip files](README.md#dev-and-wip-files)
   * [RecordLoader Dependencies](README.md#recordloader-dependencies)
   * [Triggering on deployment](README.md#triggering-on-deployment)
@@ -107,62 +100,62 @@ Suppose you want to create a loader to maintain a selection of product types. Yo
 
 This will create several files:
 
-#### `lib/tasks/record_loader.rake`
+- `lib/tasks/record_loader.rake`
 
-Adds the record_loader:all rake task which can be used to trigger all record loaders.
+  Adds the record_loader:all rake task which can be used to trigger all record loaders.
 
-#### `lib/record_loader/application_record_loader.rb`
+- `lib/record_loader/application_record_loader.rb`
 
-Application specific base class for customization.
+  Application specific base class for customization.
 
-#### `config/record_loader/product_types/default_records.yml`
+- `config/record_loader/product_types/default_records.yml`
 
-Example yaml file to begin populating with your record information. Record Loaders will load all yaml files from within
-this directory, so it is possible to separate your records into multiple different files for better organization.
-In addition yaml files ending in `.dev.yml` and `.wip.yml` exhibit special behaviour.
-See [dev and wip files](#dev-and-wip).
+  Example yaml file to begin populating with your record information. Record Loaders will load all yaml files from within
+  this directory, so it is possible to separate your records into multiple different files for better organization.
+  In addition yaml files ending in `.dev.yml` and `.wip.yml` exhibit special behaviour.
+  See [dev and wip files](#dev-and-wip).
 
-#### `lib/record_loader/product_type_loader.rb`
+- `lib/record_loader/product_type_loader.rb`
 
-The actual loader. It will look something like this:
+  The actual loader. It will look something like this:
 
-```ruby
-# frozen_string_literal: true
-# This file was automatically generated via `rails g record_loader`
+  ```ruby
+  # frozen_string_literal: true
+  # This file was automatically generated via `rails g record_loader`
 
-# RecordLoader handles automatic population and updating of database records
-# across different environments
-# @see https://rubydoc.info/github/sanger/record_loader/
-module RecordLoader
-  # Creates the specified plate types if they are not present
-  class ProductTypeLoader < ApplicationRecordLoader
-    config_folder 'product_types'
+  # RecordLoader handles automatic population and updating of database records
+  # across different environments
+  # @see https://rubydoc.info/github/sanger/record_loader/
+  module RecordLoader
+    # Creates the specified plate types if they are not present
+    class ProductTypeLoader < ApplicationRecordLoader
+      config_folder 'product_types'
 
-    def create_or_update!(name, options)
-      ProductType.create_with(options).find_or_create_by!(name: name)
+      def create_or_update!(name, options)
+        ProductType.create_with(options).find_or_create_by!(name: name)
+      end
     end
   end
-end
-```
+  ```
 
-The `config_folder` specifies which directory under `config/record_loader` will be used to source the yaml files.
-The method `create_or_update!` will create the actual records, and should be idempotent (ie. calling it multiple times will
-have the same effect as calling it once). `create_or_update!` will be called once for each entry in the yaml files,
-with the first argument being the key, and the second argument being the value, usually a hash of options.
+  The `config_folder` specifies which directory under `config/record_loader` will be used to source the yaml files.
+  The method `create_or_update!` will create the actual records, and should be idempotent (ie. calling it multiple times will
+  have the same effect as calling it once). `create_or_update!` will be called once for each entry in the yaml files,
+  with the first argument being the key, and the second argument being the value, usually a hash of options.
 
-#### `lib/record_loader/tasks/record_loader/product_type.rake`
+- `lib/record_loader/tasks/record_loader/product_type.rake`
 
-This contains the `record_loader:product_type` which will trigger the record loader, and also ensures that
-`record_loader:product_type` will get invoked on calling `record_loader:all`.
+  This contains the `record_loader:product_type` which will trigger the record loader, and also ensures that
+  `record_loader:product_type` will get invoked on calling `record_loader:all`.
 
-#### `spec/data/record_loader/product_types/product_types_basic.yml`
+- `spec/data/record_loader/product_types/product_types_basic.yml`
 
-A basic configuration for testing the loader. Tests use a separate directory to avoid coupling your specs to the data.
+  A basic configuration for testing the loader. Tests use a separate directory to avoid coupling your specs to the data.
 
-#### `spec/lib/record_loader/product_type_loader_spec.rb`
+- `spec/lib/record_loader/product_type_loader_spec.rb`
 
-A basic rspec spec file for testing your loader. By default this just confirms that your loader creates the
-expected number of records, and that it is idempotent.
+  A basic rspec spec file for testing your loader. By default this just confirms that your loader creates the
+  expected number of records, and that it is idempotent.
 
 ## Dev and Wip files
 
