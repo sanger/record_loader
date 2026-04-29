@@ -2,7 +2,7 @@
 
 require 'record_loader/attribute'
 
-RSpec.describe RecordLoader::Attribute, type: :model, loader: true do
+RSpec.describe RecordLoader::Attribute, :loader, type: :model do
   subject(:attribute) do
     described_class.new(name, type, default)
   end
