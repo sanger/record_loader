@@ -19,13 +19,6 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
-# Blocks are used to structure tests and are part of the rspec dsl.
-# The standard BlockLength limits are too stringent for this purpose.
-Metrics/BlockLength:
-  ExcludedMethods:
-    - describe
-    - context
-
 # This isn't something we need to be strict about, and the default of 5 is too low for our tests.
 RSpec/MultipleMemoizedHelpers:
   Max: 7
