@@ -13,6 +13,9 @@ inherit_from: .rubocop_todo.yml
 
 require: rubocop-rspec
 
+AllCops:
+  NewCops: enable
+
 Layout/LineLength:
   Max: 120
 
@@ -34,24 +37,3 @@ RSpec/MultipleMemoizedHelpers:
 # but feels a little strict to me.
 RSpec/NestedGroups:
   Max: 4
-
-# Pending cops in 0.83 can be removed once enabled in bulk
-# see https://docs.rubocop.org/en/latest/versioning/:
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-Lint/RaiseException:
-  Enabled: true
-Lint/StructNewOverride:
-  Enabled: true
-Style/ExponentialNotation:
-  Enabled: true
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-Style/SlicingWithRange:
-  Enabled: true
