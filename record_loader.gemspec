@@ -38,8 +38,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'psych', '~> 3.0'
 
   # Development dependencies
-  spec.add_development_dependency 'bundler', '~> 2.3'
+  spec.add_development_dependency 'bundler', '~> 2.5'
+  spec.add_development_dependency 'logger', '~> 1.7'
   spec.add_development_dependency 'mdtoc', '~> 0.3.1'
+  spec.add_development_dependency 'ostruct', '~> 0.6.3'
   spec.add_development_dependency 'pry', '~> 0.14'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.12'
