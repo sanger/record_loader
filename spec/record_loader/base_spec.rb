@@ -50,6 +50,22 @@ RSpec.describe RecordLoader::Base, :loader, type: :model do
     end
   end
 
+  describe '#initialize' do
+    let(:dev) { false }
+
+    context 'when loading a string' do
+      let(:selected_files) { ['000_example'] }
+
+      it 'loads the config from the specified file' do
+        expect(record_loader.instance_variable_get(:@config))
+          .to eq({
+                   'Example a' => { 'key_a' => 'value a' },
+                   'Example b' => { 'key_a' => 'value b' }
+                 })
+      end
+    end
+  end
+
   describe '#create' do
     before { record_loader.create! }
 
