@@ -16,8 +16,8 @@ module RecordLoader
       # Wraps the ActiveRecord::Base.transaction method.
       # @see https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
       # @return [Void]
-      def transaction(&block)
-        ActiveRecord::Base.transaction(&block)
+      def transaction(&)
+        ActiveRecord::Base.transaction(&)
       end
 
       #
