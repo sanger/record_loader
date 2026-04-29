@@ -37,3 +37,7 @@ RSpec/MultipleMemoizedHelpers:
 # but feels a little strict to me.
 RSpec/NestedGroups:
   Max: 4
+
+# The single-line syntax can be clearer than the multi-line version for multiple definitions
+Style/EmptyClassDefinition:
+  Enabled: false
