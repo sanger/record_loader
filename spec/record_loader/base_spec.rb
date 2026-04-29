@@ -64,7 +64,6 @@ RSpec.describe RecordLoader::Base, :loader, type: :model do
                  })
       end
     end
-    end
   end
 
   describe '#create' do
