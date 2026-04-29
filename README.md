@@ -10,6 +10,31 @@ your production and development environments.
 
 While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
+<!-- mdtoc -->
+* [RecordLoader](README.md#recordloader)
+  * [Key features](README.md#key-features)
+  * [Installation](README.md#installation)
+  * [How to run](README.md#how-to-run)
+  * [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
+    * [An example loader](README.md#an-example-loader)
+      * [`lib/tasks/record_loader.rake`](README.md#libtasksrecord_loader.rake)
+      * [`lib/record_loader/application_record_loader.rb`](README.md#librecord_loaderapplication_record_loader.rb)
+      * [`config/record_loader/product_types/default_records.yml`](README.md#configrecord_loaderproduct_typesdefault_records.yml)
+      * [`lib/record_loader/product_type_loader.rb`](README.md#librecord_loaderproduct_type_loader.rb)
+      * [`lib/record_loader/tasks/record_loader/product_type.rake`](README.md#librecord_loadertasksrecord_loaderproduct_type.rake)
+      * [`spec/data/record_loader/product_types/product_types_basic.yml`](README.md#specdatarecord_loaderproduct_typesproduct_types_basic.yml)
+      * [`spec/lib/record_loader/product_type_loader_spec.rb`](README.md#speclibrecord_loaderproduct_type_loader_spec.rb)
+  * [Dev and Wip files](README.md#dev-and-wip-files)
+  * [RecordLoader Dependencies](README.md#recordloader-dependencies)
+  * [Triggering on deployment](README.md#triggering-on-deployment)
+    * [Within Sanger PSD](README.md#within-sanger-psd)
+  * [Non Rails Environments](README.md#non-rails-environments)
+  * [Development](README.md#development)
+  * [Contributing](README.md#contributing)
+  * [License](README.md#license)
+  * [Updating the table of contents](README.md#updating-the-table-of-contents)
+<!-- mdtoc-end -->
+
 ## Key features
 
 - Produce testable, reproducible data migrations across multiple environments
@@ -221,3 +246,12 @@ Bug reports and pull requests are welcome on GitHub at <https://github.com/sange
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Updating the table of contents
+
+After updating this README, please update the table of contents.
+To do this automatically with the [mdtoc](https://github.com/andornaut/mdtoc) gem, run:
+
+```shell
+bundle exec mdtoc -o README.md README.md
+```
