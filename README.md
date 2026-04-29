@@ -23,6 +23,9 @@ While written with ActiveRecord/Rails in mind, it is possible to use RecordLoade
     * [Within Sanger PSD](README.md#within-sanger-psd)
   * [Non Rails Environments](README.md#non-rails-environments)
   * [Development](README.md#development)
+    * [Setup](README.md#setup)
+    * [Testing](README.md#testing)
+    * [Releasing](README.md#releasing)
   * [Contributing](README.md#contributing)
   * [License](README.md#license)
   * [Updating the table of contents](README.md#updating-the-table-of-contents)
@@ -224,11 +227,20 @@ See {RecordLoader::Adapter} for information about custom adapters.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can
-also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Setup
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the
-version number in `version.rb`, ensure the CHANGELOG.md is updated and that everything is committed.
+After checking out the repo, run `bin/setup` to install dependencies.
+
+### Testing
+
+Then, run `bundle rspec` to run the unit tests.
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To install this gem onto your local machine, run `bundle exec rake install`.
+
+### Releasing
+
+To release a new version, update the version number in `version.rb`, ensure the CHANGELOG.md is updated
+and that everything is committed.
 Then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push
 the `.gem` file to [rubygems.org](https://rubygems.org).
 
