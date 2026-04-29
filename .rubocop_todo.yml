@@ -12,12 +12,6 @@ Gemspec/RequireMFA:
   Exclude:
     - 'record_loader.gemspec'
 
-# Offense count: 2
-# This cop supports unsafe autocorrection (--autocorrect-all).
-RSpec/BeEq:
-  Exclude:
-    - 'spec/record_loader/attribute_spec.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
