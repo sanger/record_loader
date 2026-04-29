@@ -66,7 +66,7 @@ module RecordLoader
     def initialize(files: nil, directory: default_path, dev: adapter.development?)
       @path = directory.is_a?(Pathname) ? directory : Pathname.new(directory)
 
-      list = Filter.create(files: files, dev: dev, wip_list: wip_list)
+      list = Filter.create(files:, dev:, wip_list:)
       @files = @path.glob("*#{RecordFile::EXTENSION}")
                     .select { |child| list.include?(RecordFile.new(child)) }
       load_config
