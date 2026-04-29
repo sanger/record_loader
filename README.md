@@ -42,11 +42,21 @@ While written with ActiveRecord/Rails in mind, it is possible to use RecordLoade
 
 ## Version compatibility
 
-| Ruby Version  | RecordLoader Version |
+If using with Rails:
+
+| Rails Version | RecordLoader Version |
 | ------------- | -------------------- |
-| 3.1 and above | 3.1.x                |
-| 3.0.6 - 3.0.7 | 0.3.0, 3.0.x         |
-| 2.5 - 2.7     | 0.2.0                |
+| 7.x and above | 1.x                  |
+| 6.x and below | 0.3.0*, 1.0.x*       |
+
+_\* Pin psych < 4_
+
+If using with Ruby:
+
+| Ruby Version | RecordLoader Version |
+| ------------ | -------------------- |
+| 3.x          | 0.3.0, 1.0.x         |
+| 2.5 - 2.7    | 0.2.0                |
 
 ## Installation
 
