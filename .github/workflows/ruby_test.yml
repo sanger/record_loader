@@ -21,3 +21,12 @@ jobs:
 
       - name: Run rspec
         run: bundle exec rspec
+
+      - name: Upload coverage reports to Codecov
+        uses: sanger/.github/.github/actions/tests/codecov@master
+        with:
+          name: ${{ github.run_id }}_${{ github.job }}_${{ github.event_name }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: ruby,${{ github.event_name }}
+          disable-search: true
+          files: ${{ github.workspace }}/lcov.info
