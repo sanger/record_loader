@@ -3,6 +3,10 @@
 Keeps track of notable changes. Please remember to add new behaviours to the
 Unreleased section to make new releases easy.
 
+## [Unreleased]
+
+- [Added] Support for Ruby 3.1
+
 ## [3.0.0]
 
 - [Changed] Version numbering to follow [Ruby Gem versioning guidelines](https://guides.rubygems.org/patterns/), loosely tracking Ruby versions. There are no functional changes in this release.
