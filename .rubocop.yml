@@ -23,6 +23,10 @@ Metrics/BlockLength:
     - describe
     - context
 
+# This isn't something we need to be strict about, and the default of 5 is too low for our tests.
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
 # Increase the acceptable nesting levels. While we don't want
 # 4 nested contexts, it appears that the cop is also counting
 # describe. So by the time we've described out class, and the method
