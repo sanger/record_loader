@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    record_loader (0.3.0)
+    record_loader (3.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -93,4 +93,4 @@ DEPENDENCIES
   yard (~> 0.9)
 
 BUNDLED WITH
-   2.3.21
+   2.5.9
