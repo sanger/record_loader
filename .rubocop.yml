@@ -20,6 +20,9 @@ plugins:
 AllCops:
   NewCops: enable
 
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
+
 Layout/LineLength:
   Max: 120
 
