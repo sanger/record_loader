@@ -13,6 +13,7 @@ While written with ActiveRecord/Rails in mind, it is possible to use RecordLoade
 <!-- mdtoc -->
 * [RecordLoader](README.md#recordloader)
   * [Key features](README.md#key-features)
+  * [Version compatibility](README.md#version-compatibility)
   * [Installation](README.md#installation)
   * [How to run](README.md#how-to-run)
   * [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
@@ -38,6 +39,14 @@ While written with ActiveRecord/Rails in mind, it is possible to use RecordLoade
 - Add development environment specific data with .dev.yml files
 - Keep work-in-progress isolated with .wip.yml files
 - Rails generators to quickly create new record loaders
+
+## Version compatibility
+
+| Ruby Version  | RecordLoader Version |
+| ------------- | -------------------- |
+| 3.1 and above | 3.1.x                |
+| 3.0.6 - 3.0.7 | 0.3.0, 3.0.x         |
+| 2.5 - 2.7     | 0.2.0                |
 
 ## Installation
 
