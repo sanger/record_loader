@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: All Ruby Tests
+    name: Rspec
     runs-on: ubuntu-latest
 
     steps:
