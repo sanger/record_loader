@@ -47,6 +47,7 @@ If using with Rails:
 
 | Rails Version | RecordLoader Version |
 | ------------- | -------------------- |
+| 7.x and above | 1.x                  |
 | 6.x and below | 0.3.0\*, 1.0.0       |
 
 _\* Pin psych < 4_
