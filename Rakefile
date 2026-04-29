@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 # We add preflight to the release task pre-requisites before loading in the
-# bundler/gem_tasks to ensure that it runs first. This is becuase 'release' is
+# bundler/gem_tasks to ensure that it runs first. This is because 'release' is
 # actually composed entirely of pre-requisites and so would otherwise end up
 # running the pre-flight tasks AFTER everything else
+desc 'Runs the preflight checklist before building a release'
 task release: :preflight
 
 require 'bundler/gem_tasks'

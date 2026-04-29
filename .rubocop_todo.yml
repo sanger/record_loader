@@ -12,11 +12,6 @@ Gemspec/RequireMFA:
   Exclude:
     - 'record_loader.gemspec'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Rake/Desc:
-  Exclude:
-    - 'Rakefile'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
