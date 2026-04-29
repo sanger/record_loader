@@ -3,18 +3,23 @@
 Keeps track of notable changes. Please remember to add new behaviours to the
 Unreleased section to make new releases easy.
 
+## [3.0.0]
+
+- [Changed] Version numbering to follow [Ruby Gem versioning guidelines](https://guides.rubygems.org/patterns/), loosely tracking Ruby versions. There are no functional changes in this release.
+
 ## [0.3.0]
+
 - [Breaking] Remove support for Ruby 2.5
 - [Added] Add support for Ruby 3.0
 
 ## [0.2.0]
 
 - [Added] `RecordLoader.export_attributes` for easy generation of yaml from
-           existing data
+  existing data
 - [Added] Improved feedback if exceptions raised during record creation
 - [Added] Improved templated yml files to use attributes from table
 - [Changed] Update name of yaml files generated as part of tests.
-            No changes are required to existing loaders.
+  No changes are required to existing loaders.
 - [Fixed] Default yaml files correctly templated
 
 ## [0.1.1]
