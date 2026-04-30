@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # We add preflight to the release task pre-requisites before loading in the
-# bundler/gem_tasks to ensure that it runs first. This is becuase 'release' is
+# bundler/gem_tasks to ensure that it runs first. This is because 'release' is
 # actually composed entirely of pre-requisites and so would otherwise end up
 # running the pre-flight tasks AFTER everything else
 task release: :preflight
@@ -25,7 +25,7 @@ task :preflight do
   puts
   puts "☐ lib/record_loader/version.rb updated? Currently contains #{current_version}"
   puts '☐ CHANGELOG.md updated'
-  puts '☐ Commited, on master and up to date'
+  puts '☐ Committed, on master and up to date'
   puts
   print 'Proceed Y/N > '
 
