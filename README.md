@@ -7,7 +7,7 @@
 
 RecordLoader provides a simple and standardized way of populating databases from information described in a series of
 organized yaml files. It is intended to be used to generate a number of idempotent tasks, which can be run in both
-your production and development environments.
+your production and development environments. It should only be used with trusted data.
 
 While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
