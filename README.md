@@ -1,6 +1,6 @@
 # RecordLoader
 
-[![Ruby](https://img.shields.io/badge/ruby-3.0-e2242a?logo=ruby)](https://ruby-doc.org/3.0.6/)
+[![Ruby](https://img.shields.io/badge/ruby-3.3%20|%203.4%20|%204.0-e2242a?logo=ruby)](https://www.ruby-lang.org/en/)
 [![Test Coverage](https://codecov.io/gh/sanger/record_loader/graph/badge.svg?token=AO7PUU5SB0)](https://codecov.io/gh/sanger/record_loader)
 [![Current Version](https://img.shields.io/github/v/tag/sanger/record_loader?sort=semver&label=Release)](https://github.com/sanger/record_loader/tags)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/sanger/record_loader)
