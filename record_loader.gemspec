@@ -35,6 +35,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'psych', '~> 3.0'
+
   # Development dependencies
   spec.add_development_dependency 'bundler', '~> 2.3'
   spec.add_development_dependency 'mdtoc', '~> 0.3.1'
