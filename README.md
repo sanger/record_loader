@@ -12,26 +12,26 @@ your production and development environments.
 While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
 <!-- mdtoc -->
-
-- [RecordLoader](README.md#recordloader)
-  - [Key features](README.md#key-features)
-  - [Installation](README.md#installation)
-  - [How to run](README.md#how-to-run)
-  - [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
-    - [An example loader](README.md#an-example-loader)
-  - [Dev and Wip files](README.md#dev-and-wip-files)
-  - [RecordLoader Dependencies](README.md#recordloader-dependencies)
-  - [Triggering on deployment](README.md#triggering-on-deployment)
-    - [Within Sanger PSD](README.md#within-sanger-psd)
-  - [Non Rails Environments](README.md#non-rails-environments)
-  - [Development](README.md#development)
-    - [Setup](README.md#setup)
-    - [Testing](README.md#testing)
-    - [Releasing](README.md#releasing)
-  - [Contributing](README.md#contributing)
-  - [License](README.md#license)
-  - [Updating the table of contents](README.md#updating-the-table-of-contents)
-  <!-- mdtoc-end -->
+* [RecordLoader](README.md#recordloader)
+  * [Key features](README.md#key-features)
+  * [Version compatibility](README.md#version-compatibility)
+  * [Installation](README.md#installation)
+  * [How to run](README.md#how-to-run)
+  * [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
+    * [An example loader](README.md#an-example-loader)
+  * [Dev and Wip files](README.md#dev-and-wip-files)
+  * [RecordLoader Dependencies](README.md#recordloader-dependencies)
+  * [Triggering on deployment](README.md#triggering-on-deployment)
+    * [Within Sanger PSD](README.md#within-sanger-psd)
+  * [Non Rails Environments](README.md#non-rails-environments)
+  * [Development](README.md#development)
+    * [Setup](README.md#setup)
+    * [Testing](README.md#testing)
+    * [Releasing](README.md#releasing)
+  * [Contributing](README.md#contributing)
+  * [License](README.md#license)
+  * [Updating the table of contents](README.md#updating-the-table-of-contents)
+<!-- mdtoc-end -->
 
 ## Key features
 
@@ -40,6 +40,24 @@ While written with ActiveRecord/Rails in mind, it is possible to use RecordLoade
 - Add development environment specific data with .dev.yml files
 - Keep work-in-progress isolated with .wip.yml files
 - Rails generators to quickly create new record loaders
+
+## Version compatibility
+
+If using with Rails:
+
+| Rails Version | RecordLoader Version |
+| ------------- | -------------------- |
+| 6.x and below | 0.3.0\*, 1.0.0       |
+
+_\* Pin psych < 4_
+
+If using with Ruby directly:
+
+| Ruby Version | RecordLoader Version |
+| ------------ | -------------------- |
+| 4.x          | 1.x                  |
+| 3.x          | 0.3.0, 1.x           |
+| 2.5 - 2.7    | 0.2.0                |
 
 ## Installation
 
