@@ -3,6 +3,10 @@
 Keeps track of notable changes. Please remember to add new behaviours to the
 Unreleased section to make new releases easy.
 
+## [0.3.0]
+- [Breaking] Remove support for Ruby 2.5
+- [Added] Add support for Ruby 3.0
+
 ## [0.2.0]
 
 - [Added] `RecordLoader.export_attributes` for easy generation of yaml from
