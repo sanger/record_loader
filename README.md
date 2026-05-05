@@ -2,6 +2,7 @@
 
 [![Ruby](https://img.shields.io/badge/ruby-3.0-e2242a?logo=ruby)](https://ruby-doc.org/3.0.6/)
 [![Test Coverage](https://codecov.io/gh/sanger/record_loader/graph/badge.svg?token=AO7PUU5SB0)](https://codecov.io/gh/sanger/record_loader)
+[![Current Version](https://img.shields.io/github/v/tag/sanger/record_loader?sort=semver&label=Release)](https://github.com/sanger/record_loader/tags)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/sanger/record_loader)
 
 RecordLoader provides a simple and standardized way of populating databases from information described in a series of
