@@ -52,8 +52,6 @@ task :preflight do
   end
 end
 
-private
-
 # Highlight the provided path in cyan for better visibility in the terminal
 def p(path)
   Rainbow(path).bright.cyan
