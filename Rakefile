@@ -57,9 +57,9 @@ def p(path)
   Rainbow(path).bright.cyan
 end
 
-# Highlight the provided status in white for better visibility in the terminal
+# Highlight the provided status in bright for better visibility in the terminal
 def st(status)
-  Rainbow(status).bright.white
+  Rainbow(status).bright
 end
 
 # Given a boolean value, return Yes or No, or 'N/A' if the value is nil
