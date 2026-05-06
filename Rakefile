@@ -75,7 +75,7 @@ def uncommitted_changes?
 end
 
 def on_master?
-  `git rev-parse --abrev-ref HEAD`.chomp == 'master'
+  `git rev-parse --abbrev-ref HEAD`.chomp == 'master'
 end
 
 def latest_master?
