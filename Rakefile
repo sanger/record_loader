@@ -35,7 +35,8 @@ task :preflight do
   puts "▢ Are all changes committed to git? #{yn(uncommitted_changes?)}"
   puts "▢ Are you on master and up to date? #{yn(on_master? & latest_master)}"
   puts
-  puts 'Proceeding will package the gem, create a git tag for the version, push commits and tags to GitHub, and push the .gem file to rubygems.org.'.italic
+  puts 'Proceeding will package the gem, create a git tag for the version, ' \
+       'push commits and tags to GitHub, and push the .gem file to rubygems.org.'.italic
   puts 'We do not currently have an accessible team account on rubygems.org, so this final step can be skipped.'.italic
   puts
   print 'Proceed [y/N] > '
