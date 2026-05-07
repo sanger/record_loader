@@ -2,7 +2,7 @@
 
 require 'record_loader/attribute'
 
-RSpec.describe RecordLoader::Attribute, type: :model, loader: true do
+RSpec.describe RecordLoader::Attribute, :loader, type: :model do
   subject(:attribute) do
     described_class.new(name, type, default)
   end
@@ -178,13 +178,13 @@ RSpec.describe RecordLoader::Attribute, type: :model, loader: true do
       context 'without a default' do
         let(:default) { nil }
 
-        it { is_expected.to eq false }
+        it { is_expected.to be false }
       end
 
       context 'with a default' do
         let(:default) { true }
 
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end

@@ -12,25 +12,26 @@ your production and development environments.
 While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
 <!-- mdtoc -->
-* [RecordLoader](README.md#recordloader)
-  * [Key features](README.md#key-features)
-  * [Installation](README.md#installation)
-  * [How to run](README.md#how-to-run)
-  * [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
-    * [An example loader](README.md#an-example-loader)
-  * [Dev and Wip files](README.md#dev-and-wip-files)
-  * [RecordLoader Dependencies](README.md#recordloader-dependencies)
-  * [Triggering on deployment](README.md#triggering-on-deployment)
-    * [Within Sanger PSD](README.md#within-sanger-psd)
-  * [Non Rails Environments](README.md#non-rails-environments)
-  * [Development](README.md#development)
-    * [Setup](README.md#setup)
-    * [Testing](README.md#testing)
-    * [Releasing](README.md#releasing)
-  * [Contributing](README.md#contributing)
-  * [License](README.md#license)
-  * [Updating the table of contents](README.md#updating-the-table-of-contents)
-<!-- mdtoc-end -->
+
+- [RecordLoader](README.md#recordloader)
+  - [Key features](README.md#key-features)
+  - [Installation](README.md#installation)
+  - [How to run](README.md#how-to-run)
+  - [How to generate new records loaders for your project (Rails)](README.md#how-to-generate-new-records-loaders-for-your-project-rails)
+    - [An example loader](README.md#an-example-loader)
+  - [Dev and Wip files](README.md#dev-and-wip-files)
+  - [RecordLoader Dependencies](README.md#recordloader-dependencies)
+  - [Triggering on deployment](README.md#triggering-on-deployment)
+    - [Within Sanger PSD](README.md#within-sanger-psd)
+  - [Non Rails Environments](README.md#non-rails-environments)
+  - [Development](README.md#development)
+    - [Setup](README.md#setup)
+    - [Testing](README.md#testing)
+    - [Releasing](README.md#releasing)
+  - [Contributing](README.md#contributing)
+  - [License](README.md#license)
+  - [Updating the table of contents](README.md#updating-the-table-of-contents)
+  <!-- mdtoc-end -->
 
 ## Key features
 
@@ -242,8 +243,8 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 To release a new version, update the version number in `version.rb`, ensure the CHANGELOG.md is updated
 and that everything is committed.
-Then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push
-the `.gem` file to [rubygems.org](https://rubygems.org).
+Then run `bundle exec rake release`, which will create a git tag for the version, then push git commits
+and tags to GitHub.
 
 ## Contributing
 

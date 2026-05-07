@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RecordLoader::Base, type: :model, loader: true do
+RSpec.describe RecordLoader::Base, :loader, type: :model do
   subject(:record_loader) do
     allow(ENV).to receive(:fetch).with('WIP', '').and_return(wip_flags)
     custom_subclass.new(**options)

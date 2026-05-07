@@ -1,4 +1,6 @@
-inherit_from: .rubocop_todo.yml
+---
+
+inherit_from: ".rubocop_todo.yml"
 
 # The behaviour of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
@@ -9,19 +11,24 @@ inherit_from: .rubocop_todo.yml
 # RuboCop will start looking for the configuration file in the directory
 # where the inspected file is and continue its way up to the root directory.
 #
-# See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+# See https://docs.rubocop.org/rubocop/latest/configuration.html
 
-require: rubocop-rspec
+plugins:
+- rubocop-rake
+- rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
 
 Layout/LineLength:
   Max: 120
 
-# Blocks are used to structure tests and are part of the rspec dsl.
-# The standard BlockLength limits are too stringent for this purpose.
-Metrics/BlockLength:
-  ExcludedMethods:
-    - describe
-    - context
+# This isn't something we need to be strict about, and the default of 5 is too low for our tests.
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
 
 # Increase the acceptable nesting levels. While we don't want
 # 4 nested contexts, it appears that the cop is also counting
@@ -31,23 +38,6 @@ Metrics/BlockLength:
 RSpec/NestedGroups:
   Max: 4
 
-# Pending cops in 0.83 can be removed once enabled in bulk
-# see https://docs.rubocop.org/en/latest/versioning/:
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-Lint/RaiseException:
-  Enabled: true
-Lint/StructNewOverride:
-  Enabled: true
-Style/ExponentialNotation:
-  Enabled: true
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-Style/SlicingWithRange:
-  Enabled: true
+# The single-line syntax can be clearer than the multi-line version for multiple definitions
+Style/EmptyClassDefinition:
+  Enabled: false
