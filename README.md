@@ -249,6 +249,7 @@ and tags to GitHub.
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at <https://github.com/sanger/record_loader>.
+Please read the [contribution guidelines](CONTRIBUTING.md) for details on the contribution process.
 
 ## License
 
