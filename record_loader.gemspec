@@ -27,8 +27,7 @@ Gem::Specification.new do |spec|
     spec.metadata['source_code_uri'] = 'https://www.github.com/sanger/record_loader'
     # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
   else
-    raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
+    raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
 
   # Specify which files should be added to the gem when it is released.
@@ -46,7 +45,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.12'
   spec.add_development_dependency 'rubocop', '~> 1.56'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.24'
+  spec.add_development_dependency 'rubocop-rake', '~> 0.7.1'
+  spec.add_development_dependency 'rubocop-rspec', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0.22'
   spec.add_development_dependency 'simplecov-lcov', '~> 0.9'
   spec.add_development_dependency 'yard', '~> 0.9'

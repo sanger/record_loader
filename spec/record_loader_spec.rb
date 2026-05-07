@@ -2,6 +2,6 @@
 
 RSpec.describe RecordLoader do
   it 'has a version number' do
-    expect(RecordLoader::VERSION).not_to be nil
+    expect(RecordLoader::VERSION).not_to be_nil
   end
 end

@@ -4,6 +4,7 @@
 # bundler/gem_tasks to ensure that it runs first. This is because 'release' is
 # actually composed entirely of pre-requisites and so would otherwise end up
 # running the pre-flight tasks AFTER everything else
+desc 'Runs the preflight checklist before building a release'
 task release: :preflight
 
 require 'bundler/gem_tasks'
@@ -50,8 +51,6 @@ task :preflight do
     exit 1
   end
 end
-
-private
 
 # Highlight the provided path in cyan for better visibility in the terminal
 def p(path)
