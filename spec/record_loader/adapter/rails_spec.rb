@@ -24,6 +24,8 @@ RSpec.describe RecordLoader::Adapter::Rails, type: :model do
     let(:active_record_base) { spy('::ActiveRecord::Base') }
 
     it 'wraps an ActiveRecord transaction' do
+      adapter.transaction { nil }
+
       expect(active_record_base).to have_received(:transaction)
     end
 
