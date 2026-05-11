@@ -1,13 +1,13 @@
 # RecordLoader
 
-[![Ruby](https://img.shields.io/badge/ruby-3.0-e2242a?logo=ruby)](https://ruby-doc.org/3.0.6/)
+[![Ruby](https://img.shields.io/badge/ruby-3.3%20|%203.4%20|%204.0-e2242a?logo=ruby)](https://www.ruby-lang.org/en/)
 [![Test Coverage](https://codecov.io/gh/sanger/record_loader/graph/badge.svg?token=AO7PUU5SB0)](https://codecov.io/gh/sanger/record_loader)
 [![Current Version](https://img.shields.io/github/v/tag/sanger/record_loader?sort=semver&label=Release)](https://github.com/sanger/record_loader/tags)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/sanger/record_loader)
 
 RecordLoader provides a simple and standardized way of populating databases from information described in a series of
 organized yaml files. It is intended to be used to generate a number of idempotent tasks, which can be run in both
-your production and development environments.
+your production and development environments. It should only be used with trusted data.
 
 While written with ActiveRecord/Rails in mind, it is possible to use RecordLoader in different environments.
 
@@ -47,6 +47,7 @@ If using with Rails:
 
 | Rails Version | RecordLoader Version |
 | ------------- | -------------------- |
+| 7.x and above | 1.x                  |
 | 6.x and below | 0.3.0\*, 1.0.0       |
 
 _\* Pin psych < 4_

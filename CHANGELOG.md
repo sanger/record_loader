@@ -4,6 +4,11 @@ Keeps track of notable changes. Please remember to add new behaviours to the
 Unreleased section to make new releases easy.  
 Follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+- [Removed] Remove support for Ruby 3.0 - 3.2
+- [Changed] Update Psych dependency to explicitly use unsafe loading
+
 ## [1.0.0]
 
 - [Changed] Version numbering to follow [Ruby Gem versioning guidelines](https://guides.rubygems.org/patterns/)

@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/sanger/record_loader'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = '>= 3.0.6'
+  spec.required_ruby_version = '>= 3.3.11'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -35,13 +35,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'psych', '~> 3.0'
+  # Runtime dependencies
+  spec.add_dependency 'psych', '~> 5.0'
 
   # Development dependencies
   spec.add_development_dependency 'bundler', '~> 2.5'
   spec.add_development_dependency 'logger', '~> 1.7'
   spec.add_development_dependency 'mdtoc', '~> 0.3.1'
-  spec.add_development_dependency 'ostruct', '~> 0.6.3'
   spec.add_development_dependency 'pry', '~> 0.14'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.12'
