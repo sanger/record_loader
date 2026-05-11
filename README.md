@@ -65,19 +65,19 @@ If using with Ruby directly:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'record_loader'
+gem 'record_loader', git: 'https://github.com/sanger/record_loader', tag: 'v1.x.x' # Replace with the latest version tag
 ```
 
 And then execute:
 
 ```bash
-    bundle
+bundle
 ```
 
 Or install it yourself as:
 
 ```bash
-    gem install record_loader
+gem install record_loader # Newer releases not yet published to RubyGems.org
 ```
 
 If you are using Rails, you do not need to make any further changes, and all necessary hooks will be installed when
@@ -88,7 +88,7 @@ generating your first record loader.
 To execute all record loaders created for your project you can use the command:
 
 ```bash
-    rake record_loader:all
+rake record_loader:all
 ```
 
 ## How to generate new records loaders for your project (Rails)
@@ -99,7 +99,7 @@ In addition, the first time you use it it will automatically install the necessa
 You can access this by running:
 
 ```bash
-    bundle exec rails g record_loader
+bundle exec rails g record_loader
 ```
 
 Which will return the documentation:
@@ -111,15 +111,15 @@ Which will return the documentation:
 Suppose you want to create a loader to maintain a selection of product types. You'll first use the generator:
 
 ```bash
-  $ bundle exec rails g record_loader product_type
-       exist
-      create  config/record_loader/product_types/default_records.yml
-      create  lib/record_loader/product_type_loader.rb
-      create  lib/record_loader/tasks/record_loader/product_type.rake
-      create  spec/data/record_loader/product_types/product_types_basic.yml
-      create  spec/lib/record_loader/product_type_loader_spec.rb
-        skip  lib/record_loader/application_record_loader.rb
-   identical  lib/tasks/record_loader.rake
+$ bundle exec rails g record_loader product_type
+     exist
+    create  config/record_loader/product_types/default_records.yml
+    create  lib/record_loader/product_type_loader.rb
+    create  lib/record_loader/tasks/record_loader/product_type.rake
+    create  spec/data/record_loader/product_types/product_types_basic.yml
+    create  spec/lib/record_loader/product_type_loader_spec.rb
+      skip  lib/record_loader/application_record_loader.rb
+ identical  lib/tasks/record_loader.rake
 ```
 
 This will create several files:
@@ -198,9 +198,9 @@ If you have an existing feature flag system you can use this instead by adding a
 `RecordLoader::ApplicationRecordLoader` which returns an array of enabled feature names. For example:
 
 ```ruby
-  def wip_list
-    FeatureFlags.active.pluck(:name)
-  end
+def wip_list
+  FeatureFlags.active.pluck(:name)
+end
 ```
 
 ## RecordLoader Dependencies
