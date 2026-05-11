@@ -24,8 +24,8 @@ module RecordLoader
       end
 
       #
-      # Impliments the RecordLoader::Adapter interface by providing a transaction
-      # method. Used by {RecordLoader::Base.create!}. This implimentation
+      # Implements the RecordLoader::Adapter interface by providing a transaction
+      # method. Used by {RecordLoader::Base.create!}. This implementation
       # yields immediately, but otherwise performs no other functions.
       #
       # @return [Void]

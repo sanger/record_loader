@@ -26,10 +26,10 @@ module RecordLoader
   #
   # - transaction(&block)
   # Wraps the {RecordLoader::Base.create!} and allows you to handle transactional rollbacks in the event that
-  # something goes wrong. This method recieves a block and should be yielded to to generate the records.
+  # something goes wrong. This method receives a block and should be yielded to to generate the records.
   #
   # - logger
-  # Should return a logger object which impliments: debug, info, warn, error, fatal methods
+  # Should return a logger object which implements: debug, info, warn, error, fatal methods
   #
   # - development?
   # Returns true if we are running in development mode.

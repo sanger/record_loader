@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# We don't want to add rails as a depenedency, so can't validate against the actual classes
+# We don't want to add rails as a dependency, so can't validate against the actual classes
 # rubocop:disable RSpec/VerifiedDoubles
 RSpec.describe RecordLoader::Adapter::Rails, type: :model do
   subject(:adapter) { described_class.new }
@@ -24,7 +24,7 @@ RSpec.describe RecordLoader::Adapter::Rails, type: :model do
     let(:active_record_base) { spy('::ActiveRecord::Base') }
 
     it 'wraps an ActiveRecord transaction' do
-      expect(active_record_base).to have_recieved(:transaction)
+      expect(active_record_base).to have_received(:transaction)
     end
 
     it 'yields control' do
