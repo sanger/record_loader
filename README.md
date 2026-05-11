@@ -65,7 +65,7 @@ If using with Ruby directly:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'record_loader'
+gem 'record_loader', git: 'https://github.com/sanger/record_loader', tag: 'v1.x.x' # Replace with the latest version tag
 ```
 
 And then execute:
@@ -77,7 +77,7 @@ And then execute:
 Or install it yourself as:
 
 ```bash
-    gem install record_loader
+    gem install record_loader # Newer releases not yet published to RubyGems.org
 ```
 
 If you are using Rails, you do not need to make any further changes, and all necessary hooks will be installed when
