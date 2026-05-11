@@ -13,6 +13,7 @@ SimpleCov.formatters =
 SimpleCov.start :rails do
   add_filter '/coverage/'
   add_filter '/spec/'
+  add_filter '/lib/record_loader/version.rb' # loaded prior to coverage starting and therefore not recorded
 
   enable_coverage :branch
 
