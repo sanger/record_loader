@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    record_loader (0.3.0)
+    record_loader (1.0.0)
       psych (~> 3.0)
 
 GEM
